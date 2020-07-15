@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Hello JavaScript</h1>
+  <p>
+    <div>Wow</div>
+    <div>
+      <ul id="my-ul">
+        <li>a</li>
+        <li id="list" class="my new class here">b</li>
+      </ul>
+    </div>
+  </p>
+
+  <script>
+    // 대상 Node 선택 (querySelector 가 더 유연하다!)
+    const liTag = document.querySelector('body > div:nth-child(4) > ul > li:nth-child(2)')
+    
+    // 대상 Node 속성에 접근
+    liTag.innerHTML
+    liTag.classList
+    liTag.id 
+
+    // 대상 Node 속성 변경
+    liTag.innerHTML = 'Great'
+    liTag.classList.add('new-class')
+    liTag.id = 'newId'
+
+    // 새로운 Node 생성
+    const newLi = document.createElement('li')
+    // 새로운 대상 Node 속성 변경
+    newLi.innerHTML = 'New List!'
+    newLi.classList.add('new-class')
+    newLi.id = 'new-id'
+
+    // 다른 대상 Node 선택
+    const ul = document.querySelector('#my-ul')
+    // 새로운 Node를 대상 Node의 자식 요소로 추가
+    ul.appendChild(newLi)
+
+  </script>
+</body>
+</html>

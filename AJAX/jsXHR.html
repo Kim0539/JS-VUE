@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 제대로 동작하지 않는다.
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET', 'https://koreanjson.com/posts/1')
+    // non-blocking 하다.(함수가 모두 종료될 때 까지 기다리지 않는다.)
+    xhr.send() 
+    // 요청을 보낸 이후 응답이 제대로 도착하지 않았지만, 바로 res 에 값을 할당한다. => ""
+    const res = xhr.response
+    console.log('RES: ', res)
+  </script>
+</body>
+</html>

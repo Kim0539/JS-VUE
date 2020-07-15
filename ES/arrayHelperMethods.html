@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Array Helper Methods</title>
+</head>
+<body>
+  <script>
+    /* 
+      callback function(콜백 함수) - MDN
+      A callback function is a function passed into another function as an argument, 
+      which is then invoked inside the outer function 
+      to complete some kind of routine or action.
+
+      콜백 함수(A)는 다른 함수(B)의 인자로 넘겨지는 함수로, 
+      다른 함수(B)의 내부에서 실행되는 함수(A)를 말한다.
+    */
+   
+    // 1. map
+    ['1', '2', '3'].map(Number)  // [1, 2, 3] , python의 int 같은 것
+
+    const numbers = [0, 9, 99]
+    function addOne(number) {
+      return number + 1
+    }
+    
+    const newNumbers1 = numbers.map(addOne)
+    const newNumbers2 = [0, 9, 99].map(function(number) { 
+      // [0, 9, 99] 를 순회하며, 각 요소를 (number) 자리에 넣는다.
+      // 그리고 리턴된 값을 새로운 배열에 넣고 마지막에 리턴한다.
+      return number + 1
+    })
+    console.log(newNumbers1, newNumbers2)
+
+    // 2. forEach
+    const newNumbers = [1, 2, 3, 4]
+    
+    /*
+      let sum = 0
+      [1, 2, 3].forEach()  이렇게 하면 오류가 난다. 세미콜론이 없어서 let sum = 0[1, 2, 3].forEach()로 읽기 때문. 주의!!!
+    */
+
+    let sum = 0
+    newNumbers.forEach(function(number) {  // 배열에 국한해서 쓸 수 있다.
+      // numbers 의 각 요소를 number 자리에 넣고,
+      // 나머지는 알아서 하세요. 리턴 없습니다.
+      sum += number
+    })
+
+    // 3. filter
+    const odds = [1, 2, 3].filter(function(number) {
+      // 각 요소를 number 자리에 넣고,
+      // 리턴이 true 인 요소들만 모아서 새로운 배열로 리턴.
+      return number % 2 === 1
+    })
+
+    console.log(odds)
+
+  </script>
+</body>
+</html>
